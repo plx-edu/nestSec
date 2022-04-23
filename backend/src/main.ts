@@ -5,8 +5,8 @@ const PORT = 3005;
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  await app.listen(PORT, () =>
-    console.log(`::: Listening on port ${PORT} :::\n`),
+  await app.listen(PORT, async () =>
+    console.log(`::: Runnig on "${await app.getUrl()}" :::\n`),
   );
 }
 bootstrap();
