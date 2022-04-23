@@ -1,0 +1,31 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id              String        @id @default(uuid())
+  name            String        @unique
+  created_at      DateTime      @default(now())
+  in_common_1     In_Common[]
+  in_common_2     In_Common[]   @relation("user_two")
+}
+
+model In_Common {
+  id              String        @id @default(uuid())
+  user_one        String
+  user_two        String
+  common          Boolean
+  common_one      String
+  common_two      String?
+  created_at      DateTime      @default(now())
+  user_1          User          @relation(fields: [user_one], references: [id], onDelete: Cascade)
+  user_2          User          @relation("user_two", fields: [user_two], references: [id], onDelete: Cascade)
+}
