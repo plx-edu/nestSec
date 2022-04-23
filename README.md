@@ -10,7 +10,7 @@
 
 ### Nest API
 
-```bash
+```sh
 nest new <project-name>
 ```
 
@@ -76,11 +76,22 @@ nest new <project-name>
 
 - Create your resources
 
-  ```bash
+  ```sh
   nest g resource <resource-name>
   ```
 
-- ...
+- Security: Passport
+  - > Required packages
+    ```sh
+    npm install --save @nestjs/passport passport passport-local
+    ```
+    ```sh
+    npm install --save-dev @types/passport-local
+    ```
+- Create **auth resource**
+  - keep: module and service
+    - fill as needed
+  - create `strategies/local.strategy.ts`
 
 ### ~~Front~~
 
@@ -91,4 +102,7 @@ nest new <project-name>
 
 ---
 
-...
+sources:
+
+- https://docs.nestjs.com/
+  ...
