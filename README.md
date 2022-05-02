@@ -91,7 +91,26 @@ nest new <project-name>
 - Create **auth resource**
   - keep: module and service
     - fill as needed
-  - create `strategies/local.strategy.ts`
+  - create `auth/strategies/local.strategy.ts`
+  - update `auth/auth.module.ts` to use Passport
+- Implement bare-bones **/auth/login** route
+
+  - update `app.controller.ts`
+    ```ts
+      @UseGuards(AuthGuard('local'))
+      @Post('auth/login')
+      async login(@Request() req) {
+        return req.user;
+      }
+    ```
+  - create **guard** class
+    - `auth/guard/local-auth.guard.ts`
+  - update `app.controller.ts`
+    ```ts
+      @UseGuards(LocalAuthGuard)
+    ```
+
+- UP NEXT <a href="https://docs.nestjs.com/security/authentication#jwt-functionality">JWT functionality</a>
 
 ### ~~Front~~
 
