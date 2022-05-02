@@ -8,7 +8,7 @@ export class LocalStrategy extends PassportStrategy(Strategy) {
   constructor(private authService: AuthService) {
     // super();
     // temporary "more fields" testing
-    super({ email: 2, phone: 'phone' });
+    super();
   }
 
   async validate(
