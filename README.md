@@ -111,6 +111,7 @@ nest new <project-name>
     ```
 
 - UP NEXT <a href="https://docs.nestjs.com/security/authentication#jwt-functionality">JWT functionality</a>
+- TO DO: complete readme
 
 ### ~~Front~~
 
