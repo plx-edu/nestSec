@@ -23,10 +23,14 @@ export class UsersService {
 
   async findOne(username: string, password?: string) {
     console.log(':::: findOne UsersService');
-    return await this.prisma.user.findFirst({
+    return await this.prisma.user.findUnique({
+      // model with a @@unique block
+      // https://www.prisma.io/docs/reference/api-reference/prisma-client-reference#findunique
       where: {
-        username: username,
-        password: password,
+        identifiers: {
+          username: username,
+          password: password,
+        },
       },
     });
   }
