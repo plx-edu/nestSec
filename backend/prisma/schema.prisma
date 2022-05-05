@@ -12,7 +12,8 @@ datasource db {
 
 model User {
   id              String        @id @default(uuid())
-  name            String        @unique
+  username        String        @unique
+  password        String
   created_at      DateTime      @default(now())
   in_common_1     In_Common[]
   in_common_2     In_Common[]   @relation("user_two")
