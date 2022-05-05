@@ -21,7 +21,7 @@ export class UsersService {
     });
   }
 
-  async findOne(username: string, password?: string) {
+  async findOne(username: string, password?: string, id?: string) {
     console.log(':::: findOne UsersService');
     return await this.prisma.user.findUnique({
       // model with a @@unique block
@@ -31,6 +31,10 @@ export class UsersService {
           username: username,
           password: password,
         },
+
+        // Used with findFirst(): OR
+        // Keep in mind for username OR email + password
+        // OR: [{ id }, { username, password }],
       },
     });
   }
