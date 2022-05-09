@@ -110,7 +110,7 @@ nest new <project-name>
       @UseGuards(LocalAuthGuard)
     ```
 
-- UP NEXT <a href="https://docs.nestjs.com/security/authentication#jwt-functionality">JWT functionality</a>
+- Previously on NestJS Authentication <a href="https://docs.nestjs.com/security/authentication#enable-authentication-globally">Enable authentication globally</a>
 - TO DO: complete readme
 
 ### ~~Front~~
